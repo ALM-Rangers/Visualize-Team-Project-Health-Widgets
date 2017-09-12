@@ -1,6 +1,7 @@
 ## Visualize-Team-Project-Health-Widgets
 
-![](https://almrangers.visualstudio.com/_apis/public/build/definitions/7f3cfb9a-d1cb-4e66-9d36-1af87b906fe9/125/badge)
+![](https://almrangers.visualstudio.com/DefaultCollection/_apis/public/build/definitions/7f3cfb9a-d1cb-4e66-9d36-1af87b906fe9/125/badge)
+![](https://almrangers.visualstudio.com/DefaultCollection/_apis/public/build/definitions/7f3cfb9a-d1cb-4e66-9d36-1af87b906fe9/97/badge)
 
 When you're running multiple CI/CD pipelines, it's invaluable to visualize the overall health of your projects. This extension contains several dashboard widgets, that enable users to create a visual cue on their dashboards, like the [Codify Build Light](https://github.com/Codify/build-light).
 
