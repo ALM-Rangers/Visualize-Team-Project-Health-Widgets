@@ -1,0 +1,73 @@
+﻿<!-- ---------------------------------------------------------------------
+// <copyright file="details.html">
+//    This code is licensed under the MIT License.
+//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+//    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+//    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+//    PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// </copyright>
+// <summary>
+//    This is part of the TPHealth widget
+//    from the ALM Rangers. This file contains the HTML
+//    layout for the details widget and the bootstrap code.
+// </summary>
+//---------------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TPHealth - Details</title>
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <script src="scripts/lib/VSS.SDK.js"></script>
+    <!--<script type="text/javascript">
+        var appInsights = window.appInsights || function (config) {
+            function r(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = u.createElement(o), i, f; for (s.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;) r("track" + i.pop()); return r("setAuthenticatedUserContext"), r("clearAuthenticatedUserContext"), config.disableExceptionTracking || (i = "onerror", r("_" + i), f = e[i], e[i] = function (config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t["_" + i](config, r, u, e, o), s }), t
+        }({
+            instrumentationKey: "<<YOUR AI KEY>>"
+        });
+
+        window.appInsights = appInsights;
+        appInsights.trackPageView();
+    </script>-->
+    <script src="scripts/lib/ai.0.22.19-build00125.min.js"></script>
+</head>
+<body id="root" class="widget clickable">
+    <a id="buildDefinitionNavigateUrl" target="_blank">
+        <div id="details">
+            <div class="build-status-row">
+                <div class="build-status" id="buildStatus"></div>
+                <div class="build-definition-name" id="buildDefinitionName"></div>
+            </div>
+            <div>
+                <div class="build-version-label">Version:</div>
+                <div id="buildVersion" class="build-version"></div>
+            </div>
+            <div>
+                <div class="build-queuedby-label">Queued by:</div>
+                <div id="buildQueuedBy" class="build-queuedby"></div>
+            </div>
+            <div>
+                <div class="build-completed-label">Completed:</div>
+                <div id="buildCompleted" class="build-completed"></div>
+            </div>
+        </div>
+        <div id="nodata"></div>
+
+    <script type="text/javascript">
+        VSS.init(
+        {
+            explicitNotifyLoaded: true,
+            setupModuleLoader: true,
+            usePlatformScripts: true,
+            usePlatformStyles: true
+        });
+        VSS.ready(function () {
+            require(["scripts/details"], function (details) { });
+        });
+    </script>
+        </a>
+</body>
+</html>
