@@ -30,6 +30,10 @@
   "links": {
     "support": { "uri": "http://aka.ms/vsarcontact" }
   },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/ALM-Rangers/Visualize-Team-Project-Health-Widgets"
+  },
   "branding": {
     "color": "rgb(51,65,133)",
     "theme": "dark"
