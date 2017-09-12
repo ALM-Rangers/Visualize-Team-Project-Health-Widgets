@@ -46,3 +46,11 @@ We need your feedback! Here are some ways to connect with us:
 - Send us an [email](mailto://mktdevlabs@microsoft.com).
 
 Review the [list of features and resolved issues of latest tools and extensions](https://aka.ms/vsarreleases) for information on the latest releases.
+
+## Contribute
+Contributions are welcome. Here is how you can contribute:  
+
+- Submit bugs and help us verify fixes  
+- Submit pull requests for bug fixes and features and discuss existing proposals   
+
+Please refer to [Contribution guidelines](.github/CONTRIBUTING.md) and the [Code of Conduct](.github/COC.md) for more details.
