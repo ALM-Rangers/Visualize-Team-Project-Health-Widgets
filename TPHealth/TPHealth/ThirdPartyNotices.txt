@@ -2,7 +2,7 @@
 THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
 Do Not Translate or Localize
 
-Team Project Health incorporates third party material from the projects listed below. The original copyright notice and the license under which Microsoft received such third party material are set forth below. Microsoft reserves all other rights not expressly granted, whether by implication, estoppel or otherwise. 
+Visualize-Team-Project-Health-Widgets incorporates third party material from the projects listed below. The original copyright notice and the license under which ALM | DevOps Ranger Contributors received such third party material are set forth below. ALM | DevOps Ranger Contributors reserve all other rights not expressly granted, whether by implication, estoppel or otherwise. 
 
 1. promise-polyfill (https://github.com/taylorhakes/promise-polyfill)
 2. bluebird (https://github.com/petkaantonov/bluebird)
