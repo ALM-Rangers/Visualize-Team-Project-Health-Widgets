@@ -6,13 +6,13 @@
     "grunt-exec": "^2.0.0",
     "grunt-typings": "^0.1.5",
     "rimraf": "^2.6.1",
-    "tfx-cli": "^0.3.49",
-    "typescript": "^2.4.0"
+    "tfx-cli": "^0.5.3",
+    "typescript": "2.6.2"
   },
   "dependencies": {
     "@types/jquery": "^2.0.34",
     "@types/q": "0.0.32",
-    "vss-web-extension-sdk": "^2.113.0"
+    "vss-web-extension-sdk": "5.127.0"
   },
   "name": "tphealth",
   "private": true,

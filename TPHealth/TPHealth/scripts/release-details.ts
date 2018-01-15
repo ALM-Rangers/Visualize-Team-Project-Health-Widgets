@@ -67,8 +67,14 @@ export class ReleaseDetailsWidget {
 	}
 	setNavigateUrl(release: TFS_RM_Contracts.Release) {
 		if (release && release._links && release._links.web) {
-			$("#definitionNavigateUrl").attr("href", release._links.web.href);
-		}
+            VSS.getService(VSS.ServiceIds.Navigation).then((navigationService: any) => {
+                $("#definitionNavigateUrl").on("click", (e) => {
+                    e.preventDefault();
+                    navigationService.openNewWindow(release._links.web.href, "");
+                });
+            });
+
+        }
 	}
 
 	setStatus(release: TFS_RM_Contracts.Release, showRejectedAsFailed: boolean) {

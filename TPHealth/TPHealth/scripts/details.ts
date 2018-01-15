@@ -92,14 +92,24 @@ export class DetailsWidget {
 
 	setNavigateUrl(build: TFS_Build_Contracts.Build) {
 		if (build && build._links && build._links.web) {
-			$("#buildDefinitionNavigateUrl").attr("href", build._links.web.href);
-		}
+            VSS.getService(VSS.ServiceIds.Navigation).then((navigationService: any) => {
+                $("#buildDefinitionNavigateUrl").on("click", (e) => {
+                    e.preventDefault();
+                    navigationService.openNewWindow(build._links.web.href, "");
+                });
+            });
+        }
 	}
 	
 	setNavigateUrlFromDefinition(definition: TFS_Build_Contracts.BuildDefinition) {
 		if (definition && definition._links && definition._links.web) {
-			$("#buildDefinitionNavigateUrl").attr("href", definition._links.web.href);
-		}
+            VSS.getService(VSS.ServiceIds.Navigation).then((navigationService: any) => {
+                $("#buildDefinitionNavigateUrl").on("click", (e) => {
+                    e.preventDefault();
+                    navigationService.openNewWindow(definition._links.web.href, "");
+                });
+            });
+        }
 	}
 
 	setStatusColor(build: TFS_Build_Contracts.Build) {
