@@ -16,6 +16,7 @@ import TFS_RM_Contracts = require("ReleaseManagement/Core/Contracts");
 import TFS_RM_Client = require("ReleaseManagement/Core/RestClient");
 import ReleaseStatus = require("./release-status");
 import TelemetryClient = require("./TelemetryClient");
+import Services_Navigation = require("VSS/SDK/Services/Navigation");
 
 VSS.require(["TFS/Dashboards/WidgetHelpers"], (WidgetHelpers) => {
 	WidgetHelpers.IncludeWidgetStyles();
@@ -67,7 +68,7 @@ export class ReleaseDetailsWidget {
 	}
 	setNavigateUrl(release: TFS_RM_Contracts.Release) {
 		if (release && release._links && release._links.web) {
-            VSS.getService(VSS.ServiceIds.Navigation).then((navigationService: any) => {
+            VSS.getService(VSS.ServiceIds.Navigation).then((navigationService: Services_Navigation.HostNavigationService) => {
                 $("#definitionNavigateUrl").on("click", (e) => {
                     e.preventDefault();
                     navigationService.openNewWindow(release._links.web.href, "");

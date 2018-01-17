@@ -15,6 +15,7 @@
 import TFS_Build_Contracts = require("TFS/Build/Contracts");
 import TFS_Build_Client = require("TFS/Build/RestClient");
 import TelemetryClient = require("./TelemetryClient");
+import Services_Navigation = require("VSS/SDK/Services/Navigation");
 
 VSS.require(["TFS/Dashboards/WidgetHelpers"], (WidgetHelpers) => {
 	WidgetHelpers.IncludeWidgetStyles();
@@ -92,7 +93,7 @@ export class DetailsWidget {
 
 	setNavigateUrl(build: TFS_Build_Contracts.Build) {
 		if (build && build._links && build._links.web) {
-            VSS.getService(VSS.ServiceIds.Navigation).then((navigationService: any) => {
+            VSS.getService(VSS.ServiceIds.Navigation).then((navigationService: Services_Navigation.HostNavigationService) => {
                 $("#buildDefinitionNavigateUrl").on("click", (e) => {
                     e.preventDefault();
                     navigationService.openNewWindow(build._links.web.href, "");
@@ -103,7 +104,7 @@ export class DetailsWidget {
 	
 	setNavigateUrlFromDefinition(definition: TFS_Build_Contracts.BuildDefinition) {
 		if (definition && definition._links && definition._links.web) {
-            VSS.getService(VSS.ServiceIds.Navigation).then((navigationService: any) => {
+            VSS.getService(VSS.ServiceIds.Navigation).then((navigationService: Services_Navigation.HostNavigationService) => {
                 $("#buildDefinitionNavigateUrl").on("click", (e) => {
                     e.preventDefault();
                     navigationService.openNewWindow(definition._links.web.href, "");

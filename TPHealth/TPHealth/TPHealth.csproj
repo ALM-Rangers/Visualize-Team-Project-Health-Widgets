@@ -43,7 +43,6 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".vscode\tasks.json" />
     <Content Include="css\app.css">
       <DependentUpon>app.less</DependentUpon>
     </Content>
@@ -86,7 +85,6 @@
     <Content Include="img\logo.png" />
     <Content Include="details.html" />
     <Content Include="scripts\lib\VSS.SDK.js" />
-    <Content Include="test\TestSpec.js" />
     <None Include="package.json" />
   </ItemGroup>
   <ItemGroup>
