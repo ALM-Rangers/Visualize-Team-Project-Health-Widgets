@@ -63,6 +63,10 @@
     <Content Include="static\img\Configure-Extension.png" />
     <Content Include="static\img\Preview-Detail.png" />
     <Content Include="static\img\Preview-Overview.png" />
+    <Content Include="static\screenshots\builddetails.png" />
+    <Content Include="static\screenshots\buildoverview.png" />
+    <Content Include="static\screenshots\releaseconfig.png" />
+    <Content Include="static\screenshots\releasedetails.png" />
     <Content Include="ThirdPartyNotices.txt" />
     <Content Include="web.config" />
     <Content Include="Overview.md" />
