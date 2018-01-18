@@ -246,3 +246,5 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
+/TPHealth/TPHealth/scripts/*.js
+**/*/settings.tfx.json

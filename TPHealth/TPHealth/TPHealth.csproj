@@ -43,70 +43,67 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\app.css">
+    <Content Include="static\css\app.css">
       <DependentUpon>app.less</DependentUpon>
     </Content>
-    <Content Include="css\app.min.css">
+    <Content Include="static\css\app.min.css">
       <DependentUpon>app.css</DependentUpon>
     </Content>
-    <Content Include="release-details-configuration.html" />
-    <Content Include="release-overview-configuration.html" />
-    <Content Include="release-overview.html" />
-    <Content Include="release-details.html" />
-    <Content Include="overview-configuration.html" />
-    <Content Include="img\check.gif" />
-    <Content Include="img\cross.gif" />
-    <Content Include="img\refresh.gif" />
-    <Content Include="overview.html" />
-    <Content Include="details-configuration.html" />
-    <Content Include="img\Configure-Extension.png" />
-    <Content Include="img\Preview-Detail.png" />
-    <Content Include="img\Preview-Overview.png" />
-    <Content Include="MIT-1.txt" />
-    <Content Include="scripts\lib\ai.0.22.19-build00125.min.js" />
+    <Content Include="static\release-details-configuration.html" />
+    <Content Include="static\release-overview-configuration.html" />
+    <Content Include="static\release-overview.html" />
+    <Content Include="static\release-details.html" />
+    <Content Include="static\overview-configuration.html" />
+    <Content Include="static\img\check.gif" />
+    <Content Include="static\img\cross.gif" />
+    <Content Include="static\img\refresh.gif" />
+    <Content Include="static\overview.html" />
+    <Content Include="static\details-configuration.html" />
+    <Content Include="static\img\Configure-Extension.png" />
+    <Content Include="static\img\Preview-Detail.png" />
+    <Content Include="static\img\Preview-Overview.png" />
     <Content Include="ThirdPartyNotices.txt" />
     <Content Include="web.config" />
     <Content Include="Overview.md" />
-    <Content Include="marketplace\mp_terms.md" />
-    <Content Include="css\app.less" />
+    <Content Include="mp_terms.md" />
+    <Content Include="static\css\app.less" />
+    <Content Include="webpack.config.js" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="tsconfig.json" />
+    <Content Include="tslint.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+    <Content Include="whitesource.config.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="img\logo.png" />
-    <Content Include="details.html" />
-    <Content Include="scripts\lib\VSS.SDK.js" />
+    <Content Include="static\img\logo.png" />
+    <Content Include="static\details.html" />
     <None Include="package.json" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="scripts\IReleaseDetailSettings.d.ts" />
-    <TypeScriptCompile Include="scripts\IReleaseOverviewSettings.d.ts" />
-    <TypeScriptCompile Include="scripts\release-overview-configuration.ts" />
-    <TypeScriptCompile Include="scripts\release-details-configuration.ts" />
-    <TypeScriptCompile Include="scripts\details-configuration.ts" />
-    <TypeScriptCompile Include="scripts\release-overview.ts" />
-    <TypeScriptCompile Include="scripts\release-details.ts" />
-    <TypeScriptCompile Include="scripts\IOverviewSettings.d.ts" />
-    <TypeScriptCompile Include="scripts\overview-configuration.ts" />
-    <TypeScriptCompile Include="scripts\details.ts" />
-    <TypeScriptCompile Include="scripts\IDetailSettings.d.ts" />
-    <TypeScriptCompile Include="scripts\lib\ai.0.22.19-build00125.d.ts" />
-    <TypeScriptCompile Include="scripts\overview.ts" />
-    <TypeScriptCompile Include="scripts\TelemetryClient.ts" />
+    <TypeScriptCompile Include="src\IReleaseDetailSettings.d.ts" />
+    <TypeScriptCompile Include="src\IReleaseOverviewSettings.d.ts" />
+    <TypeScriptCompile Include="src\release-overview-configuration.ts" />
+    <TypeScriptCompile Include="src\release-details-configuration.ts" />
+    <TypeScriptCompile Include="src\build-details-configuration.ts" />
+    <TypeScriptCompile Include="src\release-overview.ts" />
+    <TypeScriptCompile Include="src\release-details.ts" />
+    <TypeScriptCompile Include="src\IOverviewSettings.d.ts" />
+    <TypeScriptCompile Include="src\build-overview-configuration.ts" />
+    <TypeScriptCompile Include="src\build-details.ts" />
+    <TypeScriptCompile Include="src\IDetailSettings.d.ts" />
+    <TypeScriptCompile Include="src\build-overview.ts" />
+    <TypeScriptCompile Include="src\TelemetryClient.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="vss-extension.json" />
-    <None Include="settings.tfx.json" />
-    <None Include="gruntfile.js" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
