@@ -54,12 +54,12 @@
     <Content Include="static\release-overview-configuration.html" />
     <Content Include="static\release-overview.html" />
     <Content Include="static\release-details.html" />
-    <Content Include="static\overview-configuration.html" />
+    <Content Include="static\build-overview-configuration.html" />
     <Content Include="static\img\check.gif" />
     <Content Include="static\img\cross.gif" />
     <Content Include="static\img\refresh.gif" />
-    <Content Include="static\overview.html" />
-    <Content Include="static\details-configuration.html" />
+    <Content Include="static\build-overview.html" />
+    <Content Include="static\build-details-configuration.html" />
     <Content Include="static\img\Configure-Extension.png" />
     <Content Include="static\img\Preview-Detail.png" />
     <Content Include="static\img\Preview-Overview.png" />
@@ -89,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="static\img\logo.png" />
-    <Content Include="static\details.html" />
+    <Content Include="static\build-details.html" />
     <None Include="package.json" />
   </ItemGroup>
   <ItemGroup>
