@@ -1,4 +1,4 @@
-﻿//---------------------------------------------------------------------
+﻿// ---------------------------------------------------------------------
 // <copyright file="overview.ts">
 //    This code is licensed under the MIT License.
 //    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
@@ -11,33 +11,28 @@
 //    from the ALM Rangers. This file contains the TypeScript 
 //    code for the configuration page for the overview widget.
 // </summary>
-//---------------------------------------------------------------------
-import VSS_Common_Contracts = require("VSS/WebApi/Contracts");
+// ---------------------------------------------------------------------
+import * as tc from "telemetryclient-team-services-extension";
 import TFS_Build_Contracts = require("TFS/Build/Contracts");
 import TFS_Build_Client = require("TFS/Build/RestClient");
-import TelemetryClient = require("./TelemetryClient");
-
+import VSS_Common_Contracts = require("VSS/WebApi/Contracts");
+import Overview = require("./overview");
+import telemetryClientSettings = require("./telemetryClientSettings");
 
 VSS.require(["TFS/Dashboards/WidgetHelpers"], (WidgetHelpers) => {
 	WidgetHelpers.IncludeWidgetStyles();
 	VSS.register("TPHealth-OverviewWidget", () => {
-		var overviewWidget = new OverviewWidget(WidgetHelpers);
+		const overviewWidget = new OverviewWidget(WidgetHelpers);
 		return overviewWidget;
-	})
+	});
 	VSS.notifyLoadSucceeded();
 });
-
-
-class Overview {
-	constructor(public Failed: number, public Succeeded: number, public InProgress: number) {
-	}
-}
 
 export class OverviewWidget {
 	constructor(public WidgetHelpers) { }
 
-    public async load(widgetSettings) {
-        TelemetryClient.TelemetryClient.getClient().trackPageView("BuildOverview");
+	public async load(widgetSettings) {
+		tc.TelemetryClient.getClient(telemetryClientSettings.settings).trackPageView("BuildOverview");
 
 		this.ShowOverviewData(widgetSettings);
 		return this.WidgetHelpers.WidgetStatusHelper.Success();
@@ -50,45 +45,39 @@ export class OverviewWidget {
 
 	public async ShowOverviewData(widgetSettings) {
 		$(".title").text(widgetSettings.name);
-        await this.showBuild(widgetSettings);
+		await this.showBuild(widgetSettings);
 	}
 
-	async showBuild(widgetSettings) {
-		var buildClient = TFS_Build_Client.getClient();
-		var context = VSS.getWebContext();
+	private async showBuild(widgetSettings) {
+		const buildClient = TFS_Build_Client.getClient();
+		const context = VSS.getWebContext();
+		const overviewData: Overview.Overview = new Overview.Overview(0, 0, 0);
+		const customSettings = JSON.parse(widgetSettings.customSettings.data) as IOverviewSettings;
+		let definitions = await buildClient.getDefinitions(context.project.name);
 
-		var overviewData: Overview = new Overview(0, 0, 0);
-		var customSettings = <IOverviewSettings>JSON.parse(widgetSettings.customSettings.data);
-		var definitions = await buildClient.getDefinitions(context.project.name);
 		if (!!customSettings && !!customSettings.selectedDefinitions) {
-			definitions = definitions.filter(def => customSettings.selectedDefinitions.indexOf(def.name) != -1);
+			definitions = definitions.filter((def) => customSettings.selectedDefinitions.indexOf(def.name) !== -1);
 		}
 
-		var ids = definitions.map(value => { return value.id });
+		const ids = definitions.map((value) => value.id);
 		if (ids.length > 0) {
-			var builds = await buildClient.getBuilds(context.project.name, ids, null, null, null, null,
+			const builds = await buildClient.getBuilds(context.project.name, ids, null, null, null, null,
 				null, null, null, null, null, null, null, null, null, 1);
 
-			builds.forEach(build => {
-				if (build.result == TFS_Build_Contracts.BuildResult.Succeeded) {
+			builds.forEach((build) => {
+				if (build.result === TFS_Build_Contracts.BuildResult.Succeeded) {
 					overviewData.Succeeded++;
-				}
-                else if (build.result == TFS_Build_Contracts.BuildResult.Canceled) {
-                    overviewData.Failed++;
-				}
-				else if (build.result == TFS_Build_Contracts.BuildResult.Failed) {
+				} else if (build.result === TFS_Build_Contracts.BuildResult.Canceled) {
 					overviewData.Failed++;
-				}
-                else if (build.result == TFS_Build_Contracts.BuildResult.PartiallySucceeded) {
-                    overviewData.Failed++;
-				}
-				else if (build.result == TFS_Build_Contracts.BuildResult.None) {
-                    overviewData.InProgress++;
-				}
-				else if (build.status == TFS_Build_Contracts.BuildStatus.InProgress) {
+				} else if (build.result === TFS_Build_Contracts.BuildResult.Failed) {
+					overviewData.Failed++;
+				} else if (build.result === TFS_Build_Contracts.BuildResult.PartiallySucceeded) {
+					overviewData.Failed++;
+				} else if (build.result === TFS_Build_Contracts.BuildResult.None) {
 					overviewData.InProgress++;
-				}
-				else if (build.status == TFS_Build_Contracts.BuildStatus.NotStarted) {
+				} else if (build.status === TFS_Build_Contracts.BuildStatus.InProgress) {
+					overviewData.InProgress++;
+				} else if (build.status === TFS_Build_Contracts.BuildStatus.NotStarted) {
 					overviewData.InProgress++;
 				}
 			});
@@ -101,15 +90,12 @@ export class OverviewWidget {
 
 			if (overviewData.Failed > 0) {
 				$("#container").addClass("fail");
-			}
-			else if (overviewData.InProgress > 0) {
+			} else if (overviewData.InProgress > 0) {
 				$("#container").addClass("building");
-			}
-			else {
+			} else {
 				$("#container").addClass("success");
 			}
-		}
-		else {
+		} else {
 			$("#nodata").text("No build definitions found");
 		}
 	}

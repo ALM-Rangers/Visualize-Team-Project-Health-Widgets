@@ -43,6 +43,7 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\overview.ts" />
     <Content Include="static\css\app.css">
       <DependentUpon>app.less</DependentUpon>
     </Content>
@@ -100,7 +101,8 @@
     <TypeScriptCompile Include="src\build-details.ts" />
     <TypeScriptCompile Include="src\IDetailSettings.d.ts" />
     <TypeScriptCompile Include="src\build-overview.ts" />
-    <TypeScriptCompile Include="src\TelemetryClient.ts" />
+    <TypeScriptCompile Include="src\release-status.ts" />
+    <TypeScriptCompile Include="src\telemetryClientSettings.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="vss-extension.json" />

@@ -1,4 +1,4 @@
-﻿//---------------------------------------------------------------------
+﻿// ---------------------------------------------------------------------
 // <copyright file="IDetailSettings.d.ts">
 //    This code is licensed under the MIT License.
 //    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF 
@@ -11,9 +11,9 @@
 //    from the ALM Rangers. This file contains the TypeScript 
 //    interface definition for the custom settings for the detail widget.
 // </summary>
-//---------------------------------------------------------------------
+// ---------------------------------------------------------------------
 
 interface IReleaseOverviewSettings {
-    selectedDefinitions: string;
-    showRejectedAsFailed: boolean;
+	selectedDefinitions: string;
+	showRejectedAsFailed: boolean;
 }

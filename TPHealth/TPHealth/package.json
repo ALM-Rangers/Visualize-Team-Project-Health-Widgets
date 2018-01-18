@@ -1,18 +1,19 @@
 {
   "devDependencies": {
-    "grunt": "^1.0.0",
-    "grunt-contrib-copy": "*",
-    "grunt-contrib-jasmine": "*",
-    "grunt-exec": "^2.0.0",
-    "grunt-typings": "^0.1.5",
     "rimraf": "^2.6.1",
     "tfx-cli": "^0.5.3",
-    "typescript": "2.6.2"
+    "typescript": "2.6.2",
+    "cpx": "^1.5.0",
+    "ts-loader": "^3.2.0",
+    "tslint": "^5.9.1",
+    "tslint-loader": "^3.5.3",
+    "webpack": "^3.10.0"
   },
   "dependencies": {
-    "@types/jquery": "^2.0.34",
-    "@types/q": "0.0.32",
-    "vss-web-extension-sdk": "5.127.0"
+    "@types/jquery": "^3.2.18",
+    "vss-web-extension-sdk": "^5.127.0",
+    "applicationinsights-js": "^1.0.14",
+    "telemetryclient-team-services-extension": "*"
   },
   "name": "tphealth",
   "private": true,
