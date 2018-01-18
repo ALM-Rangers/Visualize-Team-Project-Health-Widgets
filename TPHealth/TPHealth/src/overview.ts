@@ -8,11 +8,10 @@
 // </copyright>
 // <summary>
 //    This is part of the TPHealth widget
-//    from the ALM Rangers. This file contains the TypeScript 
+//    from the ALM Rangers. This file contains the TypeScript
 //    code for the configuration page of the details widget.
 // </summary>
 // ---------------------------------------------------------------------
-
 
 export class Overview {
 	constructor(public Failed: number, public Succeeded: number, public InProgress: number) {

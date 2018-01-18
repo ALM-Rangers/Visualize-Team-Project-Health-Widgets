@@ -8,7 +8,7 @@
 // </copyright>
 // <summary>
 //    This is part of the TPHealth widget
-//    from the ALM Rangers. This file contains the TypeScript 
+//    from the ALM Rangers. This file contains the TypeScript
 //    code for the configuration page for the overview widget.
 // </summary>
 // ---------------------------------------------------------------------

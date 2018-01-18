@@ -8,7 +8,7 @@
 // </copyright>
 // <summary>
 //    This is part of the TPHealth widget
-//    from the ALM Rangers. This file contains the TypeScript 
+//    from the ALM Rangers. This file contains the TypeScript
 //    code for the configuration page of the details widget.
 // </summary>
 // ---------------------------------------------------------------------
@@ -57,7 +57,7 @@ class DetailsConfiguration {
 			undefined,
 			undefined,
 			undefined,
-			TFS_Build_Contracts.DefinitionQueryOrder.DefinitionNameAscending)
+			TFS_Build_Contracts.DefinitionQueryOrder.DefinitionNameAscending);
 
 		const options = this.definitionDropDown;
 

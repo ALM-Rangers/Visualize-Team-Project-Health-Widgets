@@ -12,7 +12,7 @@
     <AssemblyName>TPHealth</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
@@ -43,6 +43,7 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\BuildDetails.ts" />
     <TypeScriptCompile Include="src\overview.ts" />
     <Content Include="static\css\app.css">
       <DependentUpon>app.less</DependentUpon>
@@ -50,6 +51,10 @@
     <Content Include="static\css\app.min.css">
       <DependentUpon>app.css</DependentUpon>
     </Content>
+    <Content Include="static\img\TPH-B-Details.png" />
+    <Content Include="static\img\TPH-Build-Overview.png" />
+    <Content Include="static\img\TPH-R-Details.png" />
+    <Content Include="static\img\TPH-R-Overview.png" />
     <Content Include="static\release-details-configuration.html" />
     <Content Include="static\release-overview-configuration.html" />
     <Content Include="static\release-overview.html" />

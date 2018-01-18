@@ -75,7 +75,7 @@ export class OverviewConfiguration {
 		this.notifyOnChange(this.buildDefinitionDropDown);
 
 		const self = this;
-		this.showRejectedAsFailedCheckbox.change(function (e) {
+		this.showRejectedAsFailedCheckbox.change(function(e) {
 			self.showRejectedAsFailed = this.checked;
 			self.widgetConfigurationContext.notify(self.WidgetHelpers.WidgetEvent.ConfigurationChange,
 				self.WidgetHelpers.WidgetEvent.Args(self.getCustomSettings()));
