@@ -101,6 +101,7 @@
     <TypeScriptCompile Include="scripts\IDetailSettings.d.ts" />
     <TypeScriptCompile Include="scripts\lib\ai.0.22.19-build00125.d.ts" />
     <TypeScriptCompile Include="scripts\overview.ts" />
+    <TypeScriptCompile Include="scripts\release-status.ts" />
     <TypeScriptCompile Include="scripts\TelemetryClient.ts" />
   </ItemGroup>
   <ItemGroup>
