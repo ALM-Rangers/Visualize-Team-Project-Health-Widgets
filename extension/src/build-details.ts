@@ -18,6 +18,9 @@ import TFS_Build_Client = require("TFS/Build/RestClient");
 import Services_Navigation = require("VSS/SDK/Services/Navigation");
 import telemetryClientSettings = require("./telemetryClientSettings");
 
+// tslint:disable-next-line:no-console
+console.log("Entering build details");
+
 VSS.require(["TFS/Dashboards/WidgetHelpers"], (WidgetHelpers) => {
 	WidgetHelpers.IncludeWidgetStyles();
 	VSS.register("TPHealth-DetailsWidget", () => {
@@ -59,7 +62,7 @@ export class DetailsWidget {
 			definitionIds,
 			null, null, null, null, null, null, null, null, null, null, null, null, null,
 			1);
-		if (builds.length === 1) {
+		if (builds.length > 0) {
 			const build = builds[0];
 			this.setDetails(build);
 			this.setStatusColor(build);

@@ -249,3 +249,5 @@ ModelManifest.xml
 /TPHealth/TPHealth/src/*.js
 **/*/settings.tfx.json
 TPHealth/TPHealth/dist/*.*
+extension/out
+extension/dist/

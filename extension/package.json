@@ -17,7 +17,7 @@
 		"lint": "tslint -c tslint.json 'src/*.ts'",
 		"package": "tfx extension create  --rev-version",
 		"postbuilddemo": "npm run package",
-		"webpack": "webpack --progress --colors --config webpack.config.js --output-path ./dist -p"
+		"webpack": "webpack --progress --colors --config webpack.config.js --output-path ./dist"
 	},
 	"devDependencies": {
 		"rimraf": "^2.6.1",

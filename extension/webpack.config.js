@@ -2,16 +2,18 @@ var path = require("path");
 var webpack = require("webpack");
 
 module.exports = {
+    devtool: 'source-map',
     target: "web",
+    
     entry: {
         builddetailsconfigurationwidget: "./src/build-details-configuration.ts",
         builddetailswidget: "./src/build-details.ts",
 
         buildoverviewconfigurationwidget: "./src/build-overview-configuration.ts",
-        buildoverviewswidget: "./src/build-overview.ts",
+        buildoverviewwidget: "./src/build-overview.ts",
 
         releasedetailsconfigurationwidget: "./src/release-details-configuration.ts",
-        releasedetailswidget: "./src/release-details.ts",
+        releasedetailwidget: "./src/release-details.ts",
 
         releaseoverviewconfigurationwidget: "./src/release-overview-configuration.ts",
         releaseoverviewwidget: "./src/release-overview.ts",
@@ -19,6 +21,8 @@ module.exports = {
     output: {
         filename: "[name].js",
         libraryTarget: "amd",
+        devtoolModuleFilenameTemplate:    "webpack:///[absolute-resource-path]",
+       
     },
     externals: [
         /^VSS\/.*/, /^TFS\/.*/, /^q$/,/^ReleaseManagement\/.*/,

@@ -1,10 +1,14 @@
 {
 	"compilerOptions": {
-		"lib": [ "dom", "es2015.promise", "es5" ],
+		"lib": [
+			"dom",
+			"es2015.promise",
+			"es5"
+		],
 		"module": "amd",
 		"moduleResolution": "node",
 		"target": "es5",
-		"outDir": "srcdist/",
+		"sourceMap": true,
 		"typeRoots": [
 			"./node_modules/@types"
 		],
