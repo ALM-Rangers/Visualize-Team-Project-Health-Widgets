@@ -45,6 +45,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="src\BuildDetails.ts" />
     <TypeScriptCompile Include="src\overview.ts" />
+    <Content Include="license.txt" />
     <Content Include="static\css\app.css">
       <DependentUpon>app.less</DependentUpon>
     </Content>
@@ -84,6 +85,7 @@
     </None>
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
+    <Content Include="README.md" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

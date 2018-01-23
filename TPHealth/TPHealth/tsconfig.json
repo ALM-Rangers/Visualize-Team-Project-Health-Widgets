@@ -1,21 +1,22 @@
 {
-  "compilerOptions": {
-    "lib": [ "dom", "es2015.promise", "es5" ],
-    "module": "amd",
-    "moduleResolution": "node",
-    "target": "es5",
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
-    "types": [
-      "vss-web-extension-sdk"
-    ]
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+	"compilerOptions": {
+		"lib": [ "dom", "es2015.promise", "es5" ],
+		"module": "amd",
+		"moduleResolution": "node",
+		"target": "es5",
+		"outDir": "dist/",
+		"typeRoots": [
+			"./node_modules/@types"
+		],
+		"types": [
+			"vss-web-extension-sdk"
+		]
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"node_modules",
+		"**/*.spec.ts"
+	]
 }

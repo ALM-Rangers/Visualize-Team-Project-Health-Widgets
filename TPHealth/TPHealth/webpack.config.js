@@ -21,7 +21,7 @@ module.exports = {
         libraryTarget: "amd",
     },
     externals: [
-        /^VSS\/.*/, /^TFS\/.*/, /^q$/,
+        /^VSS\/.*/, /^TFS\/.*/, /^q$/,/^ReleaseManagement\/.*/,
     ],
     resolve: {
         extensions: ["*", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
