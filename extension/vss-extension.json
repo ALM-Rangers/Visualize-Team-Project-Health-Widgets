@@ -1,9 +1,9 @@
 {
 	"manifestVersion": 1,
 	"id": "TPHealth",
-	"version": "15.5.6",
+	"version": "15.5.8",
 	"publisher": "WouterDeKortPlayground",
-	"baseUri": "https://localhost:44300/",
+	"baseUri": "https://localhost:3000/",
 	"name": "Team Project Health",
 	"description": "Enable users to visualise the overall health of builds, delivering a visual cue similar to the Codify Build Light.",
 	"public": false,
@@ -279,8 +279,13 @@
 		{
 			"path": "node_modules/vss-web-extension-sdk/lib",
 			"addressable": true,
-			"packagePath": "static/lib"
-		}
+			"packagePath": "lib"
+		  }
+		  ,{
+			"path": "node_modules/applicationinsights-js/dist",
+			"addressable": true,
+			"packagePath": "lib"
+		  }
 	],
 	"scopes": [
 		"vso.build",

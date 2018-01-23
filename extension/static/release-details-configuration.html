@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <head>
     <link href="css/app.css" rel="stylesheet" />
-    <script src="scripts/lib/VSS.SDK.js"></script>
+    <script src="../lib/VSS.SDK.js"></script>
 
 </head>
 <body>
@@ -48,7 +48,7 @@
         });
 
         VSS.ready(function () {
-            require(["scripts/release-details-configuration"], function (configuration) { });
+            require(["dist/releasedetailsconfigurationwidget"], function (configuration) { });
         });
     </script>
 </body>

@@ -12,6 +12,7 @@
 	"scripts": {
 		"build": "npm run lint && npm run clean && npm run webpack",
 		"clean": "rimraf ./dist && rimraf ./*.vsix",
+		"dev": "webpack-dev-server --hot --progress --colors --https --port 3000",
 		"gallery-publish": "npm run build && tfx extension publish --rev-version --token <token>",
 		"lint": "tslint -c tslint.json 'src/*.ts'",
 		"package": "tfx extension create  --rev-version",
@@ -26,7 +27,8 @@
 		"ts-loader": "^3.2.0",
 		"tslint": "^5.9.1",
 		"tslint-loader": "^3.5.3",
-		"webpack": "^3.10.0"
+		"webpack": "^3.10.0",
+		"webpack-dev-server": "^2.11.1"
 	},
 	"dependencies": {
 		"@types/jquery": "^3.2.18",

@@ -19,8 +19,8 @@
     <meta charset="utf-8" />
     <title>TPHealth - Overview</title>
     <link href="css/app.css" rel="stylesheet" />
-    <script src="scripts/lib/VSS.SDK.js"></script>
-    <script src="scripts/lib/ai.0.22.19-build00125.min.js"></script>
+    <script src="../lib/VSS.SDK.js"></script>
+    <script src="../lib/ai.0.js"></script>
 </head>
 <body>
     <div id="container" class="widget building">
@@ -40,7 +40,7 @@
             usePlatformStyles: true
         });
         VSS.ready(function () {
-            require(["scripts/overview"], function (overview) { });
+            require(["dist/buildoverviewwidget"], function (overview) { });
         });
     </script>
 </body>

@@ -1,4 +1,4 @@
-﻿<!-- ---------------------------------------------------------------------
+﻿<! -----------------------------------------------------------------------
 // <copyright file="details.html">
 //    This code is licensed under the MIT License.
 //    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
@@ -21,8 +21,8 @@
     <meta charset="utf-8" />
     <title>TPHealth - Details</title>
     <link rel="stylesheet" href="css/app.css" type="text/css" />
-    <script src="scripts/lib/VSS.SDK.js"></script>
-    <script src="scripts/lib/ai.0.22.19-build00125.min.js"></script>
+    <script src="../lib/VSS.SDK.js"></script>
+    <script src="../lib/ai.0.js"></script>
 </head>
 <body id="root" class="widget clickable">
     <a id="buildDefinitionNavigateUrl" target="_blank">
@@ -55,7 +55,7 @@
             usePlatformStyles: true
         });
         VSS.ready(function () {
-            require(["scripts/details"], function (details) { });
+            require(["dist/builddetailswidget"], function (details) { });
         });
     </script>
         </a>

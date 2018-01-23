@@ -21,8 +21,8 @@
     <meta charset="utf-8" />
     <title>TPHealth - Release Details</title>
     <link rel="stylesheet" href="css/app.css" type="text/css" />
-    <script src="scripts/lib/VSS.SDK.js"></script>
-    <script src="scripts/lib/ai.0.22.19-build00125.min.js"></script>
+    <script src="../lib/VSS.SDK.js"></script>
+    <script src="../lib/ai.0.js"></script>
 </head>
 <body id="root" class="widget clickable">
     <a id="definitionNavigateUrl" target="_blank">
@@ -54,7 +54,7 @@
                 usePlatformStyles: true
             });
         VSS.ready(function () {
-            require(["scripts/release-details"], function (details) { });
+            require(["dist/releasedetailswidget"], function (details) { });
         });
     </script>
 
