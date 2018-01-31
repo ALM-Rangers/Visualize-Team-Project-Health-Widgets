@@ -61,7 +61,7 @@ export class OverviewWidget {
 		var customSettings = <IOverviewSettings>JSON.parse(widgetSettings.customSettings.data);
 		var definitions = await buildClient.getDefinitions(context.project.name);
 		if (!!customSettings && !!customSettings.selectedDefinitions) {
-			definitions = definitions.filter(def => customSettings.selectedDefinitions.indexOf(def.name) != -1);
+			definitions = definitions.filter(def => customSettings.selectedDefinitions.split(", ").indexOf(def.name) != -1);
 		}
 
 		var ids = definitions.map(value => { return value.id });
