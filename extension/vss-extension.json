@@ -1,9 +1,8 @@
 {
 	"manifestVersion": 1,
 	"id": "TPHealth",
-	"version": "15.5.8",
-	"publisher": "WouterDeKortPlayground",
-	"baseUri": "https://localhost:3000/",
+	"version": "15.6.0",
+	"publisher": "",
 	"name": "Team Project Health",
 	"description": "Enable users to visualise the overall health of builds, delivering a visual cue similar to the Codify Build Light.",
 	"public": false,
