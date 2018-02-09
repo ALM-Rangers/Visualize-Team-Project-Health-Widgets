@@ -56,7 +56,7 @@ export class OverviewWidget {
 		let definitions = await buildClient.getDefinitions(context.project.name);
 
 		if (!!customSettings && !!customSettings.selectedDefinitions) {
-			definitions = definitions.filter((def) => customSettings.selectedDefinitions.split(", ").indexOf(def.name) != -1);
+			definitions = definitions.filter((def) => customSettings.selectedDefinitions.split(", ").indexOf(def.name) !== -1);
 		}
 
 		const ids = definitions.map((value) => value.id);
