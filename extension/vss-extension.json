@@ -1,0 +1,293 @@
+{
+	"manifestVersion": 1,
+	"id": "TPHealth",
+	"version": "15.6.0",
+	"publisher": "",
+	"name": "Team Project Health",
+	"description": "Enable users to visualise the overall health of builds, delivering a visual cue similar to the Codify Build Light.",
+	"public": false,
+	"icons": {
+		"default": "static/img/logo.png"
+	},
+	"categories": [
+		"Build and release"
+	],
+	"tags": [
+		"Status",
+		"Build",
+		"Release",
+		"Health",
+		"Visualize"
+	],
+	"content": {
+		"details": {
+			"path": "Overview.md"
+		},
+		"license": {
+			"path": "mp_terms.md"
+		}
+	},
+	"links": {
+		"support": { "uri": "http://aka.ms/vsarcontact" }
+	},
+	"repository": {
+		"type": "git",
+		"uri": "https://github.com/ALM-Rangers/Visualize-Team-Project-Health-Widgets"
+	},
+	"branding": {
+		"color": "rgb(51,65,133)",
+		"theme": "dark"
+	},
+	"targets": [
+		{
+			"id": "Microsoft.VisualStudio.Services.Cloud"
+		},
+		{
+			"id": "Microsoft.TeamFoundation.Server",
+			"version": "[15.3,)"
+		}
+	],
+	"contributions": [
+		{
+			"id": "TPHealth-OverviewWidget",
+			"type": "ms.vss-dashboards-web.widget",
+			"targets": [
+				"ms.vss-dashboards-web.widget-catalog",
+				".TPHealth-OverviewWidget-Configuration"
+			],
+			"properties": {
+				"name": "Build Health Overview",
+				"description": "Shows the status of builds in your team project.",
+				"previewImageUrl": "static/img/TPH-Build-Overview.png",
+				"uri": "static/build-overview.html",
+				"isNameConfigurable": true,
+				"supportedSizes": [
+					{
+						"rowSpan": 1,
+						"columnSpan": 3
+					},
+					{
+						"rowSpan": 1,
+						"columnSpan": 4
+					}
+				],
+				"supportedScopes": [ "project_team" ]
+			}
+		},
+		{
+			"id": "TPHealth-OverviewWidget-Configuration",
+			"type": "ms.vss-dashboards-web.widget-configuration",
+			"targets": [
+				"ms.vss-dashboards-web.widget-configuration"
+			],
+			"properties": {
+				"name": "Build Health Overview Configuration",
+				"description": "Configures the Build Health Overview widget.",
+				"uri": "static/build-overview-configuration.html"
+			}
+		},
+		{
+			"id": "TPHealth-ReleaseOverviewWidget",
+			"type": "ms.vss-dashboards-web.widget",
+			"targets": [
+				"ms.vss-dashboards-web.widget-catalog",
+				".TPHealth-ReleaseOverviewWidget-Configuration"
+			],
+			"includes": [
+				"ms.vss-releaseManagement-web.release-service-data-external"
+			],
+			"properties": {
+				"name": "Release Health Overview",
+				"description": "Shows the status of releases in your team project.",
+				"previewImageUrl": "static/img/TPH-R-Overview.png",
+				"uri": "static/release-overview.html",
+				"isNameConfigurable": true,
+				"supportedSizes": [
+					{
+						"rowSpan": 1,
+						"columnSpan": 3
+					},
+					{
+						"rowSpan": 1,
+						"columnSpan": 4
+					}
+				],
+				"supportedScopes": [ "project_team" ]
+			}
+		},
+		{
+			"id": "TPHealth-ReleaseOverviewWidget-Configuration",
+			"type": "ms.vss-dashboards-web.widget-configuration",
+			"targets": [
+				"ms.vss-dashboards-web.widget-configuration"
+			],
+			"properties": {
+				"name": "Release Health Overview Configuration",
+				"description": "Configures the Release Health Overview widget.",
+				"uri": "static/release-overview-configuration.html"
+			}
+		},
+		{
+			"id": "TPHealth-DetailsWidget",
+			"type": "ms.vss-dashboards-web.widget",
+			"targets": [
+				"ms.vss-dashboards-web.widget-catalog",
+				".TPHealth-DetailsWidget-Configuration"
+			],
+			"includes": [
+				"ms.vss-releaseManagement-web.release-service-data-external"
+			],
+			"properties": {
+				"name": "Build Health Details",
+				"description": "Shows the detailed status of a specified build definition.",
+				"previewImageUrl": "static/img/TPH-B-Details.png",
+				"uri": "static/build-details.html",
+				"isNameConfigurable": false,
+				"supportedSizes": [
+					{
+						"rowSpan": 1,
+						"columnSpan": 2
+					},
+					{
+						"rowSpan": 1,
+						"columnSpan": 3
+					},
+					{
+						"rowSpan": 1,
+						"columnSpan": 4
+					}
+				],
+				"supportedScopes": [ "project_team" ]
+			}
+		},
+		{
+			"id": "TPHealth-DetailsWidget-Configuration",
+			"type": "ms.vss-dashboards-web.widget-configuration",
+			"targets": [
+				"ms.vss-dashboards-web.widget-configuration"
+			],
+			"properties": {
+				"name": "Build Health Details Configuration",
+				"description": "Configures the Build Health Details widget.",
+				"uri": "static/build-details-configuration.html"
+			}
+		},
+		{
+			"id": "TPHealth-ReleaseDetailsWidget",
+			"type": "ms.vss-dashboards-web.widget",
+			"targets": [
+				"ms.vss-dashboards-web.widget-catalog",
+				".TPHealth-ReleaseDetailsWidget-Configuration"
+			],
+			"includes": [
+				"ms.vss-releaseManagement-web.release-service-data-external"
+			],
+			"properties": {
+				"name": "Release Health Details",
+				"description": "Shows the detailed status of a specified release definition.",
+				"previewImageUrl": "static/img/TPH-R-Details.png",
+				"uri": "static/release-details.html",
+				"isNameConfigurable": false,
+				"supportedSizes": [
+					{
+						"rowSpan": 1,
+						"columnSpan": 2
+					},
+					{
+						"rowSpan": 1,
+						"columnSpan": 3
+					},
+					{
+						"rowSpan": 1,
+						"columnSpan": 4
+					}
+				],
+				"supportedScopes": [ "project_team" ]
+			}
+		},
+		{
+			"id": "TPHealth-ReleaseDetailsWidget-Configuration",
+			"type": "ms.vss-dashboards-web.widget-configuration",
+			"targets": [
+				"ms.vss-dashboards-web.widget-configuration"
+			],
+			"includes": [
+				"ms.vss-releaseManagement-web.release-service-data-external"
+			],
+			"properties": {
+				"name": "Release Health Details Configuration",
+				"description": "Configures the Release Health Details widget.",
+				"uri": "static/release-details-configuration.html"
+			}
+		}
+	],
+	"files": [
+		{
+			"path": "static/build-overview.html",
+			"addressable": true
+		},
+		{
+			"path": "static/release-overview.html",
+			"addressable": true
+		},
+		{
+			"path": "static/build-overview-configuration.html",
+			"addressable": true
+		},
+		{
+			"path": "static/release-overview-configuration.html",
+			"addressable": true
+		},
+
+		{
+			"path": "static/build-details.html",
+			"addressable": true
+		},
+		{
+			"path": "static/release-details.html",
+			"addressable": true
+		},
+		{
+			"path": "static/build-details-configuration.html",
+			"addressable": true
+		},
+		{
+			"path": "static/release-details-configuration.html",
+			"addressable": true
+		},
+		{
+			"path": "static/css",
+			"addressable": true
+		},
+		{
+			"path": "static/img",
+			"addressable": true
+		},
+		{
+			"path": "static/screenshots",
+			"addressable": true
+		},
+		{
+			"path": "src",
+			"addressable": true
+		},
+		{
+			"path": "ThirdPartyNotices.txt",
+			"addressable": true
+		},
+		{
+			"path": "node_modules/vss-web-extension-sdk/lib",
+			"addressable": true,
+			"packagePath": "lib"
+		  }
+		  ,{
+			"path": "node_modules/applicationinsights-js/dist",
+			"addressable": true,
+			"packagePath": "lib"
+		  }
+	],
+	"scopes": [
+		"vso.build",
+		"vso.release"
+	]
+}

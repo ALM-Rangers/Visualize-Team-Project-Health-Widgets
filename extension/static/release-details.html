@@ -1,0 +1,62 @@
+﻿<!-- ---------------------------------------------------------------------
+// <copyright file="release-details.html">
+//    This code is licensed under the MIT License.
+//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+//    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+//    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+//    PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// </copyright>
+// <summary>
+//    This is part of the TPHealth widget
+//    from the ALM Rangers. This file contains the HTML
+//    layout for the release details widget and the bootstrap code.
+// </summary>
+//---------------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TPHealth - Release Details</title>
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <script src="../lib/VSS.SDK.js"></script>
+    <script src="../lib/ai.0.js"></script>
+</head>
+<body id="root" class="widget clickable">
+    <a id="definitionNavigateUrl" target="_blank">
+        <div id="details">
+            <div class="release-status-row">
+                <div class="release-status" id="releaseStatus"></div>
+                <div class="release-definition-name" id="releaseDefinitionName"></div>
+            </div>
+            <div>
+                <div class="release-name-label">Name:</div>
+                <div id="releaseName" class="release-name"></div>
+            </div>
+            <div>
+                <div class="release-createdby-label">Created by:</div>
+                <div id="releaseCreatedBy" class="release-createdby"></div>
+            </div>
+            <div>
+                <div id="releaseDescription" class="release-description"></div>
+            </div>
+        </div>
+        <div id="nodata"></div>
+    </a>
+    <script type="text/javascript">
+        VSS.init(
+            {
+                explicitNotifyLoaded: true,
+                setupModuleLoader: true,
+                usePlatformScripts: true,
+                usePlatformStyles: true
+            });
+        VSS.ready(function () {
+            require(["dist/releasedetailwidget"], function (details) { });
+        });
+    </script>
+
+</body>
+</html>

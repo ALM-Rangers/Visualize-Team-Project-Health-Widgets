@@ -1,0 +1,8 @@
+{
+  "apiKey": "__WhiteSourceAPIKey__",
+  "checkPolicies": true,
+  "productName": "__ProductName__",
+  "productVer": "__ProductVersion__",
+  "projectName": "__ProjectName__",
+  "devDep": false
+}

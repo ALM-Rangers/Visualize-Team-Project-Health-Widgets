@@ -1,0 +1,49 @@
+<!-- ---------------------------------------------------------------------
+// <copyright file="details-configuration.html">
+//    This code is licensed under the MIT License.
+//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+//    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+//    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+//    PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// </copyright>
+// <summary>
+//    This is part of the TPHealth widget
+//    from the ALM Rangers. This file contains the configuration pane HTML
+//    layout for the extension + the bootstrap code.
+// </summary>
+//---------------------------------------------------------------------
+-->
+<!DOCTYPE html>
+<head>
+    <link href="css/app.css" rel="stylesheet" />
+    <script src="../lib/VSS.SDK.js"></script>
+
+</head>
+<body>
+    <div class="container widget-configuration">
+        <div class="dropdown" id="definition-dropdown">
+            <label>Definition</label>
+            <div class="wrapper">
+                <select id="definitionDropDown"></select>
+            </div>
+            <span class="validation-error">
+                <span class="icon-error-exclamation"></span>
+                <span class="validation-error-text"></span>
+            </span>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        VSS.init({
+            explicitNotifyLoaded: true,
+            setupModuleLoader: true,
+            usePlatformScripts: true,
+            usePlatformStyles: true
+        });
+
+        VSS.ready(function () {
+            require(["dist/builddetailsconfigurationwidget"], function (configuration) { });
+        });
+    </script>
+</body>
+</html>

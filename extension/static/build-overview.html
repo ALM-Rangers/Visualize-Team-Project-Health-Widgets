@@ -1,0 +1,47 @@
+﻿<!-- ---------------------------------------------------------------------
+// <copyright file="overview.html">
+//    This code is licensed under the MIT License.
+//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+//    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+//    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+//    PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// </copyright>
+// <summary>
+//     This is part of the TPHealth widget
+//    from the ALM Rangers. This file contains the HTML
+//    layout for the overview widget and the bootstrap code.
+// </summary>
+//---------------------------------------------------------------------
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>TPHealth - Overview</title>
+    <link href="css/app.css" rel="stylesheet" />
+    <script src="../lib/VSS.SDK.js"></script>
+    <script src="../lib/ai.0.js"></script>
+</head>
+<body>
+    <div id="container" class="widget building">
+        <h2 class="title"></h2>
+
+        <div id="succeeded" class="big-count counter-pass">0</div>
+        <div id="failed" class="big-count counter-fail">0</div>
+        <div id="inprogress" class="big-count counter-inprogress">0</div>
+        <div id="nodata"></div>
+    </div>
+    <script type="text/javascript">
+        VSS.init(
+        {
+            explicitNotifyLoaded: true,
+            setupModuleLoader: true,
+            usePlatformScripts: true,
+            usePlatformStyles: true
+        });
+        VSS.ready(function () {
+            require(["dist/buildoverviewwidget"], function (overview) { });
+        });
+    </script>
+</body>
+</html>
