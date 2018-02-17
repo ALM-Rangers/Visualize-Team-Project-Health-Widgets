@@ -60,8 +60,8 @@ export class DetailsWidget {
 		const definitionIds = [customSettings.definitionId];
 		const builds = await buildClient.getBuilds(context.project.name,
 			definitionIds,
-			null, null, null, null, null, null, null, null, null, null, null, null, null,
-			1);
+			null, null, null, null, null, null, null, null, null, null, null, null,
+			1); // maxBuildsPerDefinition
 		if (builds.length > 0) {
 			const build = builds[0];
 			this.setDetails(build);
