@@ -62,7 +62,7 @@ export class OverviewWidget {
 		const ids = definitions.map((value) => value.id);
 		if (ids.length > 0) {
 			const builds = await buildClient.getBuilds(context.project.name, ids, null, null, null, null,
-				null, null, null, null, null, null, null, null, null, 1);
+				null, null, null, null, null, null, null, null, 1);
 
 			builds.forEach((build) => {
 				if (build.result === TFS_Build_Contracts.BuildResult.Succeeded) {
