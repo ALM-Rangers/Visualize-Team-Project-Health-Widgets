@@ -12,12 +12,10 @@
 //    code for the configuration page for the overview widget.
 // </summary>
 // ---------------------------------------------------------------------
-import * as tc from "telemetryclient-team-services-extension";
 import TFS_Build_Contracts = require("TFS/Build/Contracts");
 import TFS_Build_Client = require("TFS/Build/RestClient");
 import VSS_Common_Contracts = require("VSS/WebApi/Contracts");
 import Overview = require("./overview");
-import telemetryClientSettings = require("./telemetryClientSettings");
 
 VSS.require(["TFS/Dashboards/WidgetHelpers"], (WidgetHelpers) => {
 	WidgetHelpers.IncludeWidgetStyles();
@@ -32,8 +30,6 @@ export class OverviewWidget {
 	constructor(public WidgetHelpers) { }
 
 	public async load(widgetSettings) {
-		tc.TelemetryClient.getClient(telemetryClientSettings.settings).trackPageView("BuildOverview");
-
 		this.ShowOverviewData(widgetSettings);
 		return this.WidgetHelpers.WidgetStatusHelper.Success();
 	}

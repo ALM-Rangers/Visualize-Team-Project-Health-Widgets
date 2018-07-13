@@ -29,8 +29,11 @@ VSS.require(["TFS/Dashboards/WidgetHelpers"], (WidgetHelpers) => {
 
 export class OverviewConfiguration {
 	private widgetConfigurationContext = null;
-	private combo: Combos.Combo = null;
+	private buildDefinitionCombo: Combos.Combo = null;
 	private buildDefinitionDropDown = $(".build-definition-container");
+	private branchCombo: Combos.Combo = null;
+	private branchDropDown = $(".build-branch-container");
+
 	private showAll = $("#showAll");
 
 	constructor(public WidgetHelpers) { }
@@ -40,16 +43,62 @@ export class OverviewConfiguration {
 
 		const settings: IOverviewSettings = JSON.parse(widgetSettings.customSettings.data);
 		let selectedDefinitions: string = null;
+		let selectedBranch: string = null;
 
 		if (!!settings) {
 			selectedDefinitions = settings.selectedDefinitions;
+			selectedBranch = settings.selectedBranch;
 		}
+
 		const text = "Select build definition(s)";
 		$("#definitionLegend").text(text);
 
 		const context = VSS.getWebContext();
 		const buildClient = TFS_Build_Client.getClient();
+		TFS_Build_Client.getClient()
 
+		await this.loadBuildDefinitions(buildClient, context, selectedDefinitions);
+		await this.loadBranches(buildClient, context, selectedBranch);
+		return this.WidgetHelpers.WidgetStatusHelper.Success();
+	}
+
+	public getCustomSettings() {
+		const data: IOverviewSettings = {
+			selectedBranch: this.branchCombo.getText(),
+			selectedDefinitions: this.buildDefinitionCombo.getText(),
+		};
+		return { data: JSON.stringify(data) };
+	}
+
+	public onSave() {
+		return this.WidgetHelpers.WidgetConfigurationSave.Valid(this.getCustomSettings());
+	}
+
+	private async loadBranches(
+		buildClient: TFS_Build_Client.BuildHttpClient4_1,
+		context: WebContext,
+		selectedBranch,
+	) {
+		const branches = await buildClient.listBranches(context.project.id, undefined, undefined, undefined);
+
+		const dropOptions: Combos.IComboDropOptions = {
+			maxRowCount: 4,
+		};
+		const multiValueOptions: Combos.IComboOptions = {
+			dropOptions,
+			source: branches,
+			type: "multi-value",
+			value: selectedBranch,
+		};
+
+		this.branchCombo = Controls.create(Combos.Combo, this.branchDropDown, multiValueOptions);
+		this.notifyOnChange(this.branchDropDown);
+	}
+
+	private async loadBuildDefinitions(
+		buildClient: TFS_Build_Client.BuildHttpClient4_1,
+		context: WebContext,
+		selectedDefinitions: string) {
 		const defs: TFS_Build_Contracts.BuildDefinitionReference[] =
 			await buildClient.getDefinitions(
 				context.project.id,
@@ -63,28 +112,14 @@ export class OverviewConfiguration {
 		const dropOptions: Combos.IComboDropOptions = {
 			maxRowCount: 4,
 		};
-
 		const multiValueOptions: Combos.IComboOptions = {
 			dropOptions,
 			source: names,
 			type: "multi-value",
 			value: selectedDefinitions,
 		};
-
-		this.combo = Controls.create(Combos.Combo, this.buildDefinitionDropDown, multiValueOptions);
+		this.buildDefinitionCombo = Controls.create(Combos.Combo, this.buildDefinitionDropDown, multiValueOptions);
 		this.notifyOnChange(this.buildDefinitionDropDown);
-		return this.WidgetHelpers.WidgetStatusHelper.Success();
-	}
-
-	public getCustomSettings() {
-		const data: IOverviewSettings = {
-			selectedDefinitions: this.combo.getText(),
-		};
-		return { data: JSON.stringify(data) };
-	}
-
-	public onSave() {
-		return this.WidgetHelpers.WidgetConfigurationSave.Valid(this.getCustomSettings());
 	}
 
 	private notifyOnChange(control) {

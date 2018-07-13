@@ -15,4 +15,5 @@
 
 interface IOverviewSettings {
 	selectedDefinitions: string;
+	selectedBranch: string;
 }

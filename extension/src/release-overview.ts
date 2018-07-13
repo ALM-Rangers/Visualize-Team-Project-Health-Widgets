@@ -14,11 +14,9 @@
 // ---------------------------------------------------------------------
 import TFS_RM_Contracts = require("ReleaseManagement/Core/Contracts");
 import TFS_RM_Client = require("ReleaseManagement/Core/RestClient");
-import * as tc from "telemetryclient-team-services-extension";
 import VSS_Common_Contracts = require("VSS/WebApi/Contracts");
 import overview = require("./overview");
 import ReleaseStatus = require("./release-status");
-import telemetryClientSettings = require("./telemetryClientSettings");
 
 VSS.require(["TFS/Dashboards/WidgetHelpers"], (WidgetHelpers) => {
 	WidgetHelpers.IncludeWidgetStyles();
@@ -34,8 +32,6 @@ export class OverviewWidget {
 	constructor(public WidgetHelpers) { }
 
 	public async load(widgetSettings) {
-		tc.TelemetryClient.getClient(telemetryClientSettings.settings).trackPageView("ReleaseOverview");
-
 		this.ShowOverviewData(widgetSettings);
 		return this.WidgetHelpers.WidgetStatusHelper.Success();
 	}

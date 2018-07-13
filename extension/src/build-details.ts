@@ -12,11 +12,9 @@
 //    code for the details widget.
 // </summary>
 // ---------------------------------------------------------------------
-import * as tc from "telemetryclient-team-services-extension";
 import TFS_Build_Contracts = require("TFS/Build/Contracts");
 import TFS_Build_Client = require("TFS/Build/RestClient");
 import Services_Navigation = require("VSS/SDK/Services/Navigation");
-import telemetryClientSettings = require("./telemetryClientSettings");
 
 // tslint:disable-next-line:no-console
 console.log("Entering build details");
@@ -36,8 +34,6 @@ export class DetailsWidget {
 	}
 
 	public async load(widgetSettings) {
-		tc.TelemetryClient.getClient(telemetryClientSettings.settings).trackPageView("BuildDetails");
-
 		await this.ShowBuildDetails(widgetSettings);
 		return this.WidgetHelpers.WidgetStatusHelper.Success();
 	}
