@@ -1,6 +1,7 @@
 @success: green;
 @fail: darkred;
 @partial: #cf7417;
+@not-started: #7489c9;
 @building: royalblue;
 @color: white;
 @no-builds-color: gray;
@@ -54,6 +55,10 @@
 
 .building {
     background-color: @building;
+}
+
+.not-started {
+    background-color: @not-started;
 }
 
 .imageContainer {
@@ -141,6 +146,10 @@ div {
         background-image: url('../img/refresh.gif');
 }
 
+.build-status-not-started {
+        background-image: url('../img/refresh.gif');
+}
+
 .build-status-failed {
         background-image: url('../img/cross.gif');
 }
@@ -150,14 +159,22 @@ div {
         background-color:@success !important;
     }
 }
+
 .build-definition-name-failed {
     &:after {
         background-color:@fail !important;
     }
 }
+
 .build-definition-name-building {
     &:after {
         background-color:@building !important;
+    }
+}
+
+.build-definition-name-not-started {
+    &:after {
+        background-color:@not-started !important;
     }
 }
 
