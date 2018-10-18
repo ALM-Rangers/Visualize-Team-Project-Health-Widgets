@@ -128,11 +128,14 @@ export class DetailsWidget {
 				$buildStatus.addClass("build-status-failed");
 				$buildDefinitionName.addClass("build-definition-name-failed");
 			}
-		} else if (build.status === TFS_Build_Contracts.BuildStatus.InProgress
-			|| build.status === TFS_Build_Contracts.BuildStatus.NotStarted) {
+		} else if (build.status === TFS_Build_Contracts.BuildStatus.InProgress) {
 			$root.addClass("building");
 			$buildStatus.addClass("build-status-building");
 			$buildDefinitionName.addClass("build-definition-name-building");
+		} else if (build.status === TFS_Build_Contracts.BuildStatus.NotStarted) {
+			$root.addClass("not-started");
+			$buildStatus.addClass("build-status-not-started");
+			$buildDefinitionName.addClass("build-definition-name-not-started");
 		}
 	}
 
