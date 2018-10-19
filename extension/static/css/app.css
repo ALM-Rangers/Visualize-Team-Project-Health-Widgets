@@ -1,4 +1,4 @@
-﻿#container {
+#container {
   overflow: hidden;
   color: white;
   opacity: .99;
@@ -16,9 +16,6 @@
   background-color: gray;
   pointer-events: none;
 }
-.no-definition {
-  background-color: gray;
-}
 .no-releases {
   background-color: gray;
   pointer-events: none;
@@ -34,6 +31,9 @@
 }
 .building {
   background-color: royalblue;
+}
+.not-started {
+  background-color: purple;
 }
 .imageContainer {
   background-size: 41.75px 41.75px;
@@ -120,20 +120,17 @@ div .counter-inprogress:before {
   background-size: 60px 60px;
   float: left;
 }
-.build-status-unknown {
-  background-image: url('../img/cross.gif');
-}
 .build-status-succeeded {
   background-image: url('../img/check.gif');
 }
 .build-status-building {
   background-image: url('../img/refresh.gif');
 }
+.build-status-not-started {
+  background-image: url('../img/refresh.gif');
+}
 .build-status-failed {
   background-image: url('../img/cross.gif');
-}
-.build-definition-name-unknown:after {
-  background-color: gray !important;
 }
 .build-definition-name-success:after {
   background-color: green !important;
@@ -144,13 +141,15 @@ div .counter-inprogress:before {
 .build-definition-name-building:after {
   background-color: royalblue !important;
 }
+.build-definition-name-not-started:after {
+  background-color: purple !important;
+}
 .build-definition-name {
-  font-size: calc(4vw + 1vh + 2vmin);
+  font-size: calc(7vw);
   word-break: break-all;
-
 }
 .release-definition-name {
-  font-size: calc(4vw + 1vh + 2vmin);
+  font-size: calc(7vw);
   word-break: break-all;
 }
 .build-version-label {
@@ -226,7 +225,7 @@ div .counter-inprogress:before {
   white-space: nowrap;
 }
 .fill-space {
-  font-size: calc(4vw + 1vh + 2vmin);  
+  font-size: calc(7vw);
 }
 .reallySmall-text {
   font-size: 12px;

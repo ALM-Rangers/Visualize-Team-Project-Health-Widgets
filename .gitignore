@@ -5,6 +5,7 @@
 
 *.map
 *.vsix
+*.zip
 
 # User-specific files
 *.suo

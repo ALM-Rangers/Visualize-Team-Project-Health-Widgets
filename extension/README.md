@@ -1,4 +1,4 @@
-# TPHealth VSTS Extension
+# TPHealth Azure DevOps Extension
 
 ## Build
 

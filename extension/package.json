@@ -6,13 +6,13 @@
 	"author": "ALM Rangers",
 	"license": "MIT",
 	"keywords": [
-		"vsts",
+		"azuredevops",
 		"tfs"
 	],
 	"scripts": {
 		"build": "npm run lint && npm run clean && npm run webpack",
 		"clean": "rimraf ./dist && rimraf ./*.vsix",
-		"dev": "webpack-dev-server --hot --progress --colors --https --port 3000",
+		"dev": "webpack-dev-server --hot --progress --colors --https --port 5000",
 		"gallery-publish": "npm run build && tfx extension publish --rev-version --token <token>",
 		"lint": "tslint -c tslint.json 'src/*.ts'",
 		"package": "tfx extension create  --rev-version",
