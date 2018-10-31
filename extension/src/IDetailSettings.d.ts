@@ -15,4 +15,6 @@
 
 interface IDetailSettings {
 	definitionId: number;
+	branch: string;
+	showBranch: boolean;
 }

@@ -21,16 +21,37 @@
 </head>
 <body>
     <div class="container widget-configuration">
+
         <div class="dropdown" id="definition-dropdown">
             <label>Definition</label>
             <div class="wrapper">
                 <select id="definitionDropDown"></select>
+                <span class="validation-error">
+                    <span class="icon-error-exclamation"></span>
+                    <span class="validation-error-text"></span>
+                </span>
             </div>
-            <span class="validation-error">
-                <span class="icon-error-exclamation"></span>
-                <span class="validation-error-text"></span>
-            </span>
         </div>
+
+        <div class="dropdown" id="repo-dropdown">
+            <label>Select branch</label>
+            <div class="wrapper">
+                <select id="reposDropDown"></select>
+                <span class="validation-error">
+                    <span class="icon-error-exclamation"></span>
+                    <span class="validation-error-text"></span>
+                </span>
+
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <fieldset class="checkbox" id="showbranch-checkbox">
+                <legend>Show branch name</legend>
+                <input type="checkbox" id="showBranchCheckBox"/>
+            </fieldset>
+        </div>
+
     </div>
 
     <script type="text/javascript">
