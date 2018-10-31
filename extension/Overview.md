@@ -4,21 +4,21 @@ When you're running multiple CI/CD pipelines, it's invaluable to visualize the o
 ###Overview Widgets
 Using the **Build Health Overview** and **Release Health Overview** widget you can add an overall status of your builds and releases to your dashboard. As shown, we have (1) thirty-four successful builds, (2) zero failed builds and (3) zero builds in progress. We also have 9 successful releases, zero failed releases, and 15 releases that are in progress. The widgets change its colour to **green** if everything is healthy, **blue** if anything is building, and **red** if anything has failed. 
 
-![Build Overview](screenshots/buildoverview.png)
+![Build Overview](static/screenshots/buildoverview.png)
 
 ###Build Details
 By combining the **Build Health Overview** and the **Build Health Details** widgets you can create a build board that shows the same overview status and a detailed status for each build.
 
-![Build Details](screenshots/builddetails.png)
+![Build Details](static/screenshots/builddetails.png)
 
 ###Release Details
 By combining the **Release Health Overview** and the **Release Health Details** widgets you can create a release board that shows the same overview status and a detailed status for each release. As shown, we have 15 releases that are in progress, which changed the colour of the **Release Health Overview** widget and associated **Release Health Details** widgets to blue.
 
-![Build Details](screenshots/releasedetails.png)
+![Build Details](static/screenshots/releasedetails.png)
 
 When you're configuring your release widgets you have an option to handle rejected releases as failed releases.
 
-![Build Details](screenshots/releaseconfig.png)
+![Build Details](static/screenshots/releaseconfig.png)
 
 ## Known Limitations
 
