@@ -1,7 +1,7 @@
 {
 	"manifestVersion": 1,
 	"id": "TPHealth",
-	"version": "15.6.0",
+	"version": "15.6.23",
 	"publisher": "",
 	"name": "Team Project Health",
 	"description": "Enable users to visualise the overall health of builds, delivering a visual cue similar to the Codify Build Light.",
@@ -288,6 +288,7 @@
 	],
 	"scopes": [
 		"vso.build",
-		"vso.release"
+		"vso.release",
+		"vso.code"
 	]
 }

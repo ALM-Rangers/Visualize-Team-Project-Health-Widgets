@@ -110,13 +110,15 @@ div {
     color:white !important;
 }
 
+
+
 .build-status-row {
-    height:90px;
+    height:75px;
 }
 .build-status {
     width:80px;
-    height: 70px;
-    margin-top: 10px;
+    height: 60px;
+    margin-top: 5px;
   
     background-repeat:no-repeat;
     background-size:60px 60px;
@@ -194,6 +196,20 @@ div {
 }
 
 .build-version {
+    display:inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 190px;
+    white-space: nowrap;
+}
+
+.build-branch-label {
+    width:90px;
+    display:inline-block;
+    overflow:hidden;
+}
+
+.build-branch {
     display:inline-block;
     text-overflow: ellipsis;
     overflow: hidden;

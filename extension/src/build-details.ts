@@ -58,13 +58,22 @@ export class DetailsWidget {
 
 		// let's first find out if there are builds
 		const definitionIds = [customSettings.definitionId];
+		const showBranch = customSettings.showBranch;
+		let filterBranch = customSettings.branch;
+		if (filterBranch === "-1") {
+			filterBranch = null;
+		} else {
+			filterBranch = "refs/heads/" + filterBranch;
+		}
+
 		const builds = await buildClient.getBuilds(context.project.name,
 			definitionIds,
 			null, null, null, null, null, null, null, null, null, null, null, null,
-			1); // maxBuildsPerDefinition
+			1, null, null, filterBranch );
+
 		if (builds.length > 0) {
 			const build = builds[0];
-			this.setDetails(build);
+			this.setDetails(build, filterBranch, showBranch);
 			this.setStatusColor(build);
 			this.setNavigateUrl(build);
 			return;
@@ -73,7 +82,7 @@ export class DetailsWidget {
 		// no build could be found, so fallback to the build definition
 		const definition = await buildClient.getDefinition(customSettings.definitionId, context.project.name);
 		if (definition) {
-			this.setDetailsFromDefinition(definition);
+			this.setDetailsFromDefinition(definition.name, filterBranch, showBranch);
 			this.setStatusColorFromDefinition(definition);
 			this.setNavigateUrlFromDefinition(definition);
 			return;
@@ -154,9 +163,10 @@ export class DetailsWidget {
 		$("#root").addClass("no-builds");
 		$("#nodata").text("No builds found");
 		$("#details").hide();
+		$("#buildBranch").hide();
 	}
 
-	private setDetails(build: TFS_Build_Contracts.Build) {
+	private setDetails(build: TFS_Build_Contracts.Build, branchName: string, showBranch: boolean) {
 		$("#details").show();
 		$("#buildDefinitionName").text(build.definition.name);
 		$("#buildVersion").text(build.buildNumber);
@@ -166,21 +176,41 @@ export class DetailsWidget {
 		}
 		$("#root").removeClass("no-builds");
 		$("#nodata").text("");
-
+		if (branchName) {
+			$("#buildBranch").text(branchName);
+		} else {
+			$("#buildBranch").text("Any");
+		}
+		if (showBranch) {
+			$("#branch").show();
+		} else {
+			$("#branch").hide();
+		}
 		if (build.definition.name.length > 91) {
 			$("#buildDefinitionName").addClass("reallySmall-text");
 		}
 	}
 
-	private setDetailsFromDefinition(definition: TFS_Build_Contracts.BuildDefinition) {
+	private setDetailsFromDefinition(definitionName: string, branchName: string, showBranch: boolean) {
 		$("#details").show();
-		$("#buildDefinitionName").text(definition.name);
+		$("#buildDefinitionName").text(definitionName);
 		$("#buildVersion").text("");
 		$("#buildQueuedBy").text("");
 		$("#root").removeClass("no-builds");
 		$("#nodata").text("");
 
-		if (definition.name.length > 91) {
+		if (branchName) {
+			$("#buildBranch").text(branchName);
+		} else {
+			$("#buildBranch").text("Any");
+		}
+		if (showBranch) {
+			$("#branch").show();
+		} else {
+			$("#branch").hide();
+		}
+
+		if (definitionName.length > 91) {
 			$("#buildDefinitionName").addClass("reallySmall-text");
 		}
 	}
