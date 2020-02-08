@@ -47,6 +47,17 @@
 			"version": "[15.3,)"
 		}
 	],
+	"screenshots": [
+	    {
+      		"path": "static/screenshots/builddetails.png"
+	    },
+	    {
+      		"path": "static/screenshots/buildoverview.png"
+	    },
+	    {
+      		"path": "static/screenshots/releasedetails.png"
+	    }
+	],	
 	"contributions": [
 		{
 			"id": "TPHealth-OverviewWidget",
