@@ -10,7 +10,7 @@
 		"default": "static/img/logo.png"
 	},
 	"categories": [
-		"Build and release"
+		"Azure Pipelines"
 	],
 	"tags": [
 		"Status",
