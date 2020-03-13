@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch localhost in Microsoft Edge (Chromium) Canary",
+            "type": "edge",
+            "request": "launch",
+            "version": "canary",
+            "url": "https://dev.azure.com/wouterdekort/Team%20Project%20Health%20Test%20Environment/_dashboards/dashboard/d32463d3-1de4-49d4-92a4-d2e94ce30abf",
+            "webRoot": "${workspaceFolder}/wwwroot"
+        }
+    ]
+}

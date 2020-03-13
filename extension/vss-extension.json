@@ -1,10 +1,11 @@
 {
 	"manifestVersion": 1,
 	"id": "TPHealth",
-	"version": "15.6.0",
+	"version": "15.6.13",
 	"publisher": "",
 	"name": "Team Project Health",
 	"description": "Enable users to visualise the overall health of builds, delivering a visual cue similar to the Codify Build Light.",
+	"baseUri":"https://localhost:5000",
 	"public": false,
 	"icons": {
 		"default": "static/img/logo.png"

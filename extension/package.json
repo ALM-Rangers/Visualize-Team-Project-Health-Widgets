@@ -6,35 +6,34 @@
 	"author": "ALM Rangers",
 	"license": "MIT",
 	"keywords": [
-		"azuredevops",
-		"tfs"
+		"azuredevops"
 	],
 	"scripts": {
 		"build": "npm run lint && npm run clean && npm run webpack",
 		"clean": "rimraf ./dist && rimraf ./*.vsix",
 		"dev": "webpack-dev-server --hot --progress --colors --https --port 5000",
-		"gallery-publish": "npm run build && tfx extension publish --rev-version --token <token>",
+		"gallery-publish": "npm run build && tfx extension publish --rev-version", 
 		"lint": "tslint -c tslint.json 'src/*.ts'",
-		"package": "tfx extension create  --rev-version",
+		"package": "tfx extension create  --rev-version -publisher $PUBLISHER",
 		"postbuilddemo": "npm run package",
 		"webpack": "webpack --progress --colors --config webpack.config.js --output-path ./dist"
 	},
 	"devDependencies": {
+		"cpx": "^1.5.0",
 		"rimraf": "^3.0.2",
 		"tfx-cli": "^0.7.11",
-		"typescript": "3.8.3",
-		"cpx": "^1.5.0",
 		"ts-loader": "^6.2.1",
-		"tslint": "^5.16.0",
+		"tslint": "^6.0.0",
 		"tslint-loader": "^3.5.4",
+		"typescript": "^3.8.3",
 		"webpack": "^4.41.6",
 		"webpack-cli": "^3.3.11",
 		"webpack-dev-server": "^3.10.3"
 	},
 	"dependencies": {
-		"@types/jquery": "^3.2.18",
-		"vss-web-extension-sdk": "^5.127.0",
-		"applicationinsights-js": "^1.0.14",
-		"telemetryclient-team-services-extension": "*"
+		"@types/jquery": "^3.3.33",
+		"applicationinsights-js": "^1.0.21",
+		"telemetryclient-team-services-extension": "*",
+		"vss-web-extension-sdk": "^5.141.0"
 	}
 }
