@@ -298,11 +298,6 @@
 			"addressable": true
 		},
 		{
-			"path": "node_modules/vss-web-extension-sdk/lib",
-			"addressable": true,
-			"packagePath": "lib"
-		  }
-		  ,{
 			"path": "node_modules/applicationinsights-js/dist",
 			"addressable": true,
 			"packagePath": "lib"

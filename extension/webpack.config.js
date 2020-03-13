@@ -27,26 +27,22 @@ module.exports = {
     //     devtoolModuleFilenameTemplate: "webpack:///[absolute-resource-path]",
 
     // },
-    externals: [
-        /^VSS\/.*/, /^TFS\/.*/, /^q$/, /^ReleaseManagement\/.*/,
-    ],
-    // resolve: {
-    //     extensions: ["*", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
-    //     modules: [path.resolve("./src"), "node_modules"],
-    //     alias: {
-    //         "azure-devops-extension-sdk": path.resolve(
-    //             "node_modules/azure-devops-extension-sdk"
-    //         )
-    //     }
-    // },
     resolve: {
         extensions: [".ts", ".tsx", ".js"],
         alias: {
-          "azure-devops-extension-sdk": path.resolve(
-            "node_modules/azure-devops-extension-sdk"
-          )
+            "azure-devops-extension-sdk": path.resolve(
+                "node_modules/azure-devops-extension-sdk"
+            )
         }
-      },
+    },
+    resolve: {
+        extensions: [".ts", ".tsx", ".js"],
+        alias: {
+            "azure-devops-extension-sdk": path.resolve(
+                "node_modules/azure-devops-extension-sdk"
+            )
+        }
+    },
     stats: {
         warnings: false
     },

@@ -16,8 +16,8 @@ import TFS_RM_Contracts = require("ReleaseManagement/Core/Contracts");
 import TFS_RM_Client = require("ReleaseManagement/Core/RestClient");
 import * as tc from "telemetryclient-team-services-extension";
 import Services_Navigation = require("VSS/SDK/Services/Navigation");
-import ReleaseStatus = require("./release-status");
-import telemetryClientSettings = require("./telemetryClientSettings");
+import ReleaseStatus = require("../../release-status");
+import telemetryClientSettings = require("../telemetryClientSettings");
 
 VSS.require(["TFS/Dashboards/WidgetHelpers"], (WidgetHelpers) => {
 	WidgetHelpers.IncludeWidgetStyles();
