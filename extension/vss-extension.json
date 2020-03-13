@@ -4,7 +4,7 @@
 	"version": "15.6.13",
 	"publisher": "",
 	"name": "Team Project Health",
-	"description": "Enable users to visualise the overall health of builds, delivering a visual cue similar to the Codify Build Light.",
+	"description": "Enable users to visualize the overall health of builds, delivering a visual cue similar to the Codify Build Light.",
 	"baseUri":"https://localhost:5000",
 	"public": false,
 	"icons": {
@@ -220,7 +220,28 @@
 				"description": "Configures the Release Health Details widget.",
 				"uri": "static/release-details-configuration.html"
 			}
-		}
+		},
+		{
+			"id": "hello-world-hub-group",
+			"type": "ms.vss-web.hub-group",
+			"description": "Sample hub group",
+			"targets": ["ms.vss-web.project-hub-groups-collection"],
+			"properties": {
+			  "name": "Hello World!",
+			  "icon": {
+				"dark": "img/world.png",
+				"light": "img/world.png"
+			  }
+			}
+		  },
+		  {
+			"id": "default-hub",
+			"type": "ms.vss-web.hub",
+			"targets": [".hello-world-hub-group"],
+			"properties": {
+			  "uri": "dist/hub/hub.html"
+			}
+		  }
 	],
 	"files": [
 		{
