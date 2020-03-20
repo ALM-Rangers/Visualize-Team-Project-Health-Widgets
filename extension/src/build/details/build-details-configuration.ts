@@ -13,8 +13,10 @@
 // </summary>
 // ---------------------------------------------------------------------
 
-import TFS_Build_Contracts = require("TFS/Build/Contracts");
-import TFS_Build_Client = require("TFS/Build/RestClient");
+import * as SDK from "azure-devops-extension-sdk";
+
+// import TFS_Build_Contracts = require("TFS/Build/Contracts");
+// import TFS_Build_Client = require("TFS/Build/RestClient");
 
 VSS.require(["TFS/Dashboards/WidgetHelpers"], (WidgetHelpers) => {
 	WidgetHelpers.IncludeWidgetConfigurationStyles();

@@ -12,18 +12,16 @@
 //    code for the configuration page for the overview widget.
 // </summary>
 // ---------------------------------------------------------------------
-import TFS_RM_Contracts = require("ReleaseManagement/Core/Contracts");
-import TFS_RM_Client = require("ReleaseManagement/Core/RestClient");
 import * as tc from "telemetryclient-team-services-extension";
+import TFS_Build_Contracts = require("TFS/Build/Contracts");
+import TFS_Build_Client = require("TFS/Build/RestClient");
 import VSS_Common_Contracts = require("VSS/WebApi/Contracts");
-import overview = require("./overview");
-import ReleaseStatus = require("./release-status");
-import telemetryClientSettings = require("./telemetryClientSettings");
+import Overview = require("./overview");
+import telemetryClientSettings = require("../telemetryClientSettings");
 
 VSS.require(["TFS/Dashboards/WidgetHelpers"], (WidgetHelpers) => {
 	WidgetHelpers.IncludeWidgetStyles();
-
-	VSS.register("TPHealth-ReleaseOverviewWidget", () => {
+	VSS.register("TPHealth-OverviewWidget", () => {
 		const overviewWidget = new OverviewWidget(WidgetHelpers);
 		return overviewWidget;
 	});
@@ -34,7 +32,7 @@ export class OverviewWidget {
 	constructor(public WidgetHelpers) { }
 
 	public async load(widgetSettings) {
-		tc.TelemetryClient.getClient(telemetryClientSettings.settings).trackPageView("ReleaseOverview");
+		tc.TelemetryClient.getClient(telemetryClientSettings.settings).trackPageView("BuildOverview");
 
 		this.ShowOverviewData(widgetSettings);
 		return this.WidgetHelpers.WidgetStatusHelper.Success();
@@ -47,52 +45,40 @@ export class OverviewWidget {
 
 	public async ShowOverviewData(widgetSettings) {
 		$(".title").text(widgetSettings.name);
-		await this.showRelease(widgetSettings);
+		await this.showBuild(widgetSettings);
 	}
 
-	private async showRelease(widgetSettings) {
-		const releaseClient = TFS_RM_Client.getClient();
+	private async showBuild(widgetSettings) {
+		const buildClient = TFS_Build_Client.getClient();
 		const context = VSS.getWebContext();
-		const overviewData: overview.Overview = new overview.Overview(0, 0, 0);
-		const customSettings = JSON.parse(widgetSettings.customSettings.data) as IReleaseOverviewSettings;
-		let definitions = await releaseClient.getReleaseDefinitions(context.project.name);
+		const overviewData: Overview.Overview = new Overview.Overview(0, 0, 0);
+		const customSettings = JSON.parse(widgetSettings.customSettings.data) as IOverviewSettings;
+		let definitions = await buildClient.getDefinitions(context.project.name);
 
 		if (!!customSettings && !!customSettings.selectedDefinitions) {
-			definitions = definitions.filter((def) => customSettings.selectedDefinitions.indexOf(def.name) !== -1);
-		}
-		let showRejectedAsFailed: boolean = true;
-		if (!!customSettings) {
-			showRejectedAsFailed = customSettings.showRejectedAsFailed;
+			definitions = definitions.filter((def) => customSettings.selectedDefinitions.split(", ").indexOf(def.name) !== -1);
 		}
 
 		const ids = definitions.map((value) => value.id);
 		if (ids.length > 0) {
-			let allReleases: TFS_RM_Contracts.Release[] = [];
+			const builds = await buildClient.getBuilds(context.project.name, ids, null, null, null, null,
+				null, null, null, null, null, null, null, null, 1);
 
-			for (const id of ids) {
-				const releaseForDefinition = await releaseClient.getReleases(context.project.id,
-					id,
-					null, null, null, null, null, null, null, null, 1, null,
-					// tslint:disable-next-line:no-bitwise
-					TFS_RM_Contracts.ReleaseExpands.Approvals | TFS_RM_Contracts.ReleaseExpands.Environments);
-
-				allReleases = allReleases.concat(releaseForDefinition);
-
-			}
-
-			allReleases.forEach((release) => {
-				const status = ReleaseStatus.ReleaseStatus.getStatus(release, showRejectedAsFailed);
-				switch (status) {
-					case TFS_RM_Contracts.DeploymentStatus.InProgress:
-						overviewData.InProgress++;
-						break;
-					case TFS_RM_Contracts.DeploymentStatus.Succeeded:
-						overviewData.Succeeded++;
-						break;
-					case TFS_RM_Contracts.DeploymentStatus.Failed:
-						overviewData.Failed++;
-						break;
-
+			builds.forEach((build) => {
+				if (build.result === TFS_Build_Contracts.BuildResult.Succeeded) {
+					overviewData.Succeeded++;
+				} else if (build.result === TFS_Build_Contracts.BuildResult.Canceled) {
+					overviewData.Failed++;
+				} else if (build.result === TFS_Build_Contracts.BuildResult.Failed) {
+					overviewData.Failed++;
+				} else if (build.result === TFS_Build_Contracts.BuildResult.PartiallySucceeded) {
+					overviewData.Failed++;
+				} else if (build.result === TFS_Build_Contracts.BuildResult.None) {
+					overviewData.InProgress++;
+				} else if (build.status === TFS_Build_Contracts.BuildStatus.InProgress) {
+					overviewData.InProgress++;
+				} else if (build.status === TFS_Build_Contracts.BuildStatus.NotStarted) {
+					overviewData.InProgress++;
 				}
 			});
 
@@ -110,7 +96,7 @@ export class OverviewWidget {
 				$("#container").addClass("success");
 			}
 		} else {
-			$("#nodata").text("No release definitions found");
+			$("#nodata").text("No build definitions found");
 		}
 	}
 }

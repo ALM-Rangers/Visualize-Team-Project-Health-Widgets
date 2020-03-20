@@ -1,26 +1,18 @@
 {
-	"compilerOptions": {
-		"lib": [
-			"dom",
-			"es2015.promise",
-			"es5"
-		],
-		"module": "amd",
-		"moduleResolution": "node",
-		"target": "es5",
-		"sourceMap": true,
-		"typeRoots": [
-			"./node_modules/@types"
-		],
-		"types": [
-			"vss-web-extension-sdk"
-		]
-	},
-	"include": [
-		"src/**/*"
-	],
-	"exclude": [
-		"node_modules",
-		"**/*.spec.ts"
-	]
+  "compilerOptions": {
+    "module": "amd",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "target": "es6",
+    "rootDir": "src/",
+    "outDir": "dist/",
+    "jsx": "react",
+    "lib": ["es6", "dom"],
+    "types": ["react", "jquery"]
+  },
+  "exclude": ["node_modules", "typings"]
 }

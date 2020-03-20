@@ -1,10 +1,8 @@
-var path = require("path");
-var webpack = require("webpack");
+const path = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    devtool: 'source-map',
     target: "web",
-    
     entry: {
         builddetailsconfigurationwidget: "./src/build-details-configuration.ts",
         builddetailswidget: "./src/build-details.ts",
@@ -18,34 +16,68 @@ module.exports = {
         releaseoverviewconfigurationwidget: "./src/release-overview-configuration.ts",
         releaseoverviewwidget: "./src/release-overview.ts",
     },
-    output: {
-        filename: "[name].js",
-        libraryTarget: "amd",
-        devtoolModuleFilenameTemplate:    "webpack:///[absolute-resource-path]",
-       
+    devtool: 'inline-source-map',
+    devServer: {
+        https: true,
+        port: 3000
     },
-    externals: [
-        /^VSS\/.*/, /^TFS\/.*/, /^q$/,/^ReleaseManagement\/.*/,
-    ],
+    // output: {
+    //     filename: "[name].js",
+    //     libraryTarget: "amd",
+    //     devtoolModuleFilenameTemplate: "webpack:///[absolute-resource-path]",
+
+    // },
     resolve: {
-        extensions: ["*", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
-        modules: [path.resolve("./src"), "node_modules"],
+        extensions: [".ts", ".tsx", ".js"],
+        alias: {
+            "azure-devops-extension-sdk": path.resolve(
+                "node_modules/azure-devops-extension-sdk"
+            )
+        }
+    },
+    resolve: {
+        extensions: [".ts", ".tsx", ".js"],
+        alias: {
+            "azure-devops-extension-sdk": path.resolve(
+                "node_modules/azure-devops-extension-sdk"
+            )
+        }
+    },
+    stats: {
+        warnings: false
     },
     module: {
         rules: [
             {
-                enforce: "pre",
-                loader: "tslint-loader",
-                options: {
-                    emitErrors: true,
-                    failOnHint: true,
-                },
                 test: /\.tsx?$/,
+                use: "ts-loader"
             },
             {
-                loader: "ts-loader",
-                test: /\.tsx?$/,
+                test: /\.scss$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "azure-devops-ui/buildScripts/css-variables-loader",
+                    "sass-loader"
+                ]
             },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            },
+            {
+                test: /\.woff$/,
+                use: [
+                    {
+                        loader: "base64-inline-loader"
+                    }
+                ]
+            },
+            {
+                test: /\.html$/,
+                use: "file-loader"
+            }
         ],
     },
+    plugins: [new CopyWebpackPlugin([{ from: "**/*.html", context: "src" }])]
 };

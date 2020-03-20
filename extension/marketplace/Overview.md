@@ -2,7 +2,7 @@
 When you're running multiple CI/CD pipelines, it's invaluable to visualize the overall health of your projects. This extension contains several dashboard widgets, that enable users to create a visual cue on their dashboards, like the [Codify Build Light](https://github.com/Codify/build-light).
 
 ###Overview Widgets
-Using the **Build Health Overview** and **Release Health Overview** widget you can add an overall status of your builds and releases to your dashboard. As shown, we have (1) thirty-four successful builds, (2) zero failed builds and (3) zero builds in progress. We also have 9 successful releases, zero failed releases, and 15 releases that are in progress. The widgets change its colour to **green** if everything is healthy, **blue** if anything is building, and **red** if anything has failed. 
+Using the **Build Health Overview** and **Release Health Overview** widget you can add an overall status of your builds and releases to your dashboard. As shown, we have (1) thirty-four successful builds, (2) zero failed builds and (3) zero builds in progress. We also have 9 successful releases, zero failed releases, and 15 releases that are in progress. The widgets change its colour to **green** if everything is healthy, **blue** if anything is building, and **red** if anything has failed.
 
 ![Build Overview](static/screenshots/buildoverview.png)
 
@@ -22,7 +22,7 @@ When you're configuring your release widgets you have an option to handle reject
 
 ## Known Limitations
 
-- Until a Promise Polyfill hotfix is added to the web platform of TFS on-prem, this extension is **not** supported with Internet Explorer (IE) 11.**0**. 
+- Until a Promise Polyfill hotfix is added to the web platform of TFS on-prem, this extension is **not** supported with Internet Explorer (IE) 11.**0**.
 - Only supported from TFS2017 Update 3 or higher, due to new API dependencies.
 
 ## Learn More
@@ -32,6 +32,7 @@ When you're configuring your release widgets you have an option to handle reject
 [View Notices](https://marketplace.visualstudio.com/_apis/public/gallery/publisher/ms-devlabs/extension/TeamProjectHealth/latest/assetbyname/ThirdPartyNotices.txt) for third party software included in this extension.
 
 ## Contributors
+
 We thank the following contributor(s) for this extension: [Wouter de Kort](https://blogs.msdn.microsoft.com/willy-peter_schaub/2014/01/21/introducing-the-visual-studio-alm-rangers-wouter-de-kort/), [Jakob Ehn](https://blogs.msdn.microsoft.com/willy-peter_schaub/2011/11/10/introducing-the-visual-studio-alm-rangers-jakob-ehn/), [Utkarsh Shigihalli](https://blogs.msdn.microsoft.com/willy-peter_schaub/2013/07/05/introducing-the-visual-studio-alm-rangers-utkarsh-shigihalli/), and [Ed Elliott](https://blogs.msdn.microsoft.com/visualstudioalmrangers/2016/02/15/introducing-the-visual-studio-alm-rangers-ed-elliott/).
 
 ## Feedback
